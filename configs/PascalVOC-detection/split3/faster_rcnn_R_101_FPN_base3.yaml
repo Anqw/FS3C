@@ -12,7 +12,7 @@ INPUT:
 DATASETS:
   TRAIN: ('voc_2007_trainval_base3', 'voc_2012_trainval_base3')
   TEST: ('voc_2007_test_base3',)
-  SSL: ('voc_2007_trainval_all3', 'voc_2012_trainval_all3')
+  SSL: ('voc_2007_trainval_base3', 'voc_2012_trainval_base3')
 SOLVER:
   STEPS: (12000, 16000)
   MAX_ITER: 18000  # 17.4 epochs
