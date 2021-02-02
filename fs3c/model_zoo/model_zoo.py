@@ -48,6 +48,29 @@ class _ModelZooUrls(object):
         "COCO-detection/faster_rcnn_R_101_FPN_ft_all_5shot.yaml": "coco/fs3c_5shot/model_final.pth",
         "COCO-detection/faster_rcnn_R_101_FPN_ft_all_10shot.yaml": "coco/fs3c_10shot/model_final.pth",
         "COCO-detection/faster_rcnn_R_101_FPN_ft_all_30shot.yaml": "coco/fs3c_30shot/model_final.pth",
+        ### LVIS Detection ###
+        # Base Models
+        ## With repeat sampling
+        "LVIS-detection/faster_rcnn_R_50_FPN_base.yaml": "lvis/R_50_FPN_base_repeat_fc/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_50_FPN_base_cosine.yaml": "lvis/R_50_FPN_base_repeat_cos/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_101_FPN_base.yaml": "lvis/R_101_FPN_base_repeat_fc/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_101_FPN_base_cosine.yaml": "lvis/R_101_FPN_base_repeat_cos/model_final.pth",
+        ## No repeat sampling
+        "LVIS-detection/faster_rcnn_R_50_FPN_base_norepeat.yaml": "lvis/R_50_FPN_base_norepeat_fc/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_50_FPN_base_norepeat_cosine.yaml": "lvis/R_50_FPN_base_norepeat_cos/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_101_FPN_base_norepeat.yaml": "lvis/R_101_FPN_base_norepeat_fc/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_101_FPN_base_norepeat_cosine.yaml": "lvis/R_101_FPN_base_norepeat_cos/model_final.pth",
+        # Fine-tuned Models
+        ## With repeat sampling
+        "LVIS-detection/faster_rcnn_R_50_FPN_combined_all.yaml": "lvis/R_50_FPN_repeat_fc/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_50_FPN_cosine_combined_all.yaml": "lvis/R_50_FPN_repeat_cos/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_101_FPN_combined_all.yaml": "lvis/R_101_FPN_repeat_fc/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_101_FPN_cosine_combined_all.yaml": "lvis/R_101_FPN_repeat_cos/model_final.pth",
+        ## No repeat sampling
+        "LVIS-detection/faster_rcnn_R_50_FPN_combined_all_norepeat.yaml": "lvis/R_50_FPN_norepeat_fc/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_50_FPN_cosine_combined_all_norepeat.yaml": "lvis/R_50_FPN_norepeat_cos/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_101_FPN_combined_all_norepeat.yaml": "lvis/R_101_FPN_norepeat_fc/model_final.pth",
+        "LVIS-detection/faster_rcnn_R_101_FPN_cosine_combined_all_norepeat.yaml": "lvis/R_101_FPN_norepeat_cos/model_final.pth",
     }
 
 
