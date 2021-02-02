@@ -30,6 +30,7 @@ from fs3c.engine import (
 from fs3c.evaluation import (
     COCOEvaluator,
     DatasetEvaluators,
+    LVISEvaluator,
     PascalVOCDetectionEvaluator,
     verify_results,
 )
@@ -59,6 +60,8 @@ class Trainer(DefaultTrainer):
             evaluator_list.append(COCOEvaluator(dataset_name, cfg, True, output_folder))
         if evaluator_type == "pascal_voc":
             return PascalVOCDetectionEvaluator(dataset_name)
+        if evaluator_type == "lvis":
+            return LVISEvaluator(dataset_name, cfg, True, output_folder)
         if len(evaluator_list) == 0:
             raise NotImplementedError(
                 "no Evaluator for the dataset {} with the type {}".format(
