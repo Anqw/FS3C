@@ -228,6 +228,34 @@ def _get_coco_fewshot_instances_meta():
     return ret
 
 
+def _get_lvis_instances_meta_v0_5():
+    from .lvis_v0_5_categories import LVIS_CATEGORIES
+    assert len(LVIS_CATEGORIES) == 1230
+    cat_ids = [k["id"] for k in LVIS_CATEGORIES]
+    assert min(cat_ids) == 1 and max(cat_ids) == len(
+        cat_ids
+    ), "Category ids are not in [1, #categories], as expected"
+    # Ensure that the category list is sorted by id
+    lvis_categories = [k for k in sorted(LVIS_CATEGORIES, key=lambda x: x["id"])]
+    thing_classes = [k["synonyms"][0] for k in lvis_categories]
+    meta = {"thing_classes": thing_classes}
+    return meta
+
+
+def _get_lvis_fewshot_instances_meta_v0_5():
+    from .lvis_v0_5_categories import LVIS_CATEGORIES_NOVEL
+
+    all_cats = _get_lvis_instances_meta_v0_5()["thing_classes"]
+    lvis_categories_sub = [
+        k for k in sorted(LVIS_CATEGORIES_NOVEL, key=lambda x: x["id"])
+    ]
+    sub_cats = [k["synonyms"][0] for k in lvis_categories_sub]
+    mapping = {all_cats.index(c): i for i, c in enumerate(sub_cats)}
+    meta = {"thing_classes": sub_cats, "class_mapping": mapping}
+
+    return meta
+
+
 def _get_pascal_voc_fewshot_instances_meta():
     ret = {
         "thing_classes": PASCAL_VOC_ALL_CATEGORIES,
@@ -242,6 +270,10 @@ def _get_builtin_metadata(dataset_name):
         return _get_coco_instances_meta()
     elif dataset_name == "coco_fewshot":
         return _get_coco_fewshot_instances_meta()
+    elif dataset_name == "lvis_v0.5":
+        return _get_lvis_instances_meta_v0_5()
+    elif dataset_name == "lvis_v0.5_fewshot":
+        return _get_lvis_fewshot_instances_meta_v0_5()
     elif dataset_name == "pascal_voc_fewshot":
         return _get_pascal_voc_fewshot_instances_meta()
     raise KeyError("No built-in metadata for dataset {}".format(dataset_name))
